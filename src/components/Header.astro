@@ -1,0 +1,42 @@
+---
+const navItems = [
+  {
+    title: 'Experiencia',
+    label: 'experiencia',
+    url: '/#experiencia'
+  },
+  {
+    title: 'Habilidades',
+    label: 'habilidades',
+    url: '/#habilidades'
+  },
+  {
+    title: 'Proyectos',
+    label: 'proyectos',
+    url: '/#proyectos'
+  },
+  {
+    title: 'Sobre mí',
+    label: 'sobre-mi',
+    url: '/#sobre-mi'
+  },
+  {
+    title: 'Contacto',
+    label: 'contacto',
+    url: '/#contacto'
+  }
+]
+---
+
+<header class="h-24 sm:h-12 sticky top-8 z-10 w-full mt-4 mx-auto flex items-center justify-center "
+>
+  <nav class="w-full md:w-[48rem] flex flex-wrap gap-2 sm:gap-4 mx-4 justify-center rounded-xl border-2 border-gray-500 h-full items-center px-4 backdrop-blur-3xl"> 
+    {
+      navItems.map(({ title, label, url }) => (
+        <a class="hover:bg-[#8fbc8f] px-2 py-1 rounded-md  font-medium transition ease-in text-white" href={url} aria-label={label}>
+          {title}
+        </a>
+      ))
+    }
+  </nav>
+</header>

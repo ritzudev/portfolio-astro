@@ -1,0 +1,93 @@
+---
+import SocialPill from './SocialPill.astro'
+import CodeIcon from './icons/Code.astro'
+
+const PROJECTS = [
+  {
+    name: 'Pokedex',
+    image: '/projects/pokeball-cover.webp',
+    description: 'Hecha con NextJS para poner en practica mis conocimientos.',
+    github: 'https://github.com/ritzudev/pokedex-App',
+    link: 'https://pokedex-ritzudev.netlify.app/',
+    stack: ' HTML, Tailwind, JavaScript, NextJS'
+  },
+  {
+    name: 'BVB Blog',
+    image: '/projects/bvb-escudo.webp',
+    description:
+      'Blog de mi equipo favorito de futbol, diseñé y desarrollé una página web que aprovecha una API personalizada creada a través de técnicas de web scraping.',
+    github: 'https://github.com/ritzudev/newsbvb',
+    link: 'https://newsbvb.netlify.app/',
+    stack: ' HTML, Tailwind, JavaScript, Vue, NodeJs'
+  },
+  {
+    name: 'Tips Calculator',
+    image: '/projects/tips-calculator.webp',
+    description:
+      'Calculadora de propina con el objetivo simplificar y agilizar el proceso de cálculo de propinas en establecimientos de comida.',
+    github:
+      'https://github.com/ritzudev/portfolio/blob/master/src/pages/TipsCalculator.vue',
+    link: 'https://ritzudev.netlify.app/tipscalculator',
+    stack: ' HTML, JavaScript, Vue'
+  },
+  {
+    name: 'Rick & Morty',
+    image: '/projects/rick&morty.webp',
+    description:
+      "Me sumergí en el increíble y alocado universo de 'Rick and Morty' al crear un sitio web dedicado a la famosa serie animada.",
+    github:
+      'https://github.com/ritzudev/portfolio/blob/master/src/pages/Rick%26Morty.vue',
+    link: 'https://ritzudev.netlify.app/rick&morty',
+    stack: ' HTML, JavaScript, Vue'
+  },
+  {
+    name: 'Weather App',
+    image: '/projects/weather-app.webp',
+    description:
+      'Aplicación web de pronóstico del tiempo para mantenerte informado sobre las condiciones meteorológicas en tiempo real.',
+    github: 'https://github.com/ritzudev/weather-app',
+    link: 'https://weather-app-ritzu.netlify.app/',
+    stack: ' HTML, JavaScript, NextJS'
+  }
+]
+---
+
+{
+  PROJECTS.map(({ description, github, image, link, name, stack }) => (
+    <div class="h-[590px] w-full rounded-lg overflow-hidden bg-white dark:bg-white/10  shadow-2xl border dark:border-none">
+      <div class="h-[250px] p-3  sm:w-full lg:w-full group overflow-hidden hover:scale-[1] transition-all duration-[850ms] rounded-lg">
+        <img
+          class="h-full w-full group-hover:scale-[1.5] transition-all duration-1000 rounded-lg"
+          src={image}
+          alt={name}
+        />
+      </div>
+      <div class="p-4 flex flex-col h-[330px] gap-4 overflow-hidden">
+        <h5 class="text-3xl text-center dark:text-white">{name}</h5>
+
+        <p
+          style="
+        "
+          class="dark:text-white flex flex-grow text-base"
+        >
+          {description}
+        </p>
+
+        <span class="text-sm dark:text-[#CCCCCC]">Habilidades: {stack} </span>
+
+        <div class="flex justify-between text-white gap-4">
+          <SocialPill
+            href={github}
+            class=""
+          >
+            <CodeIcon class="size-6" />
+          </>
+
+          <SocialPill style={{width: '100%'}} href="#">
+            Vista Previa
+          </SocialPill>
+        </div>
+      </div>
+    </div>
+  ))
+}

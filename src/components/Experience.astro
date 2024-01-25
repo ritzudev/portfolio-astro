@@ -1,0 +1,32 @@
+---
+
+import type { Code, Debug } from 'astro:components'
+import ExperienceItem from '../components/ExperienceItem.astro'
+
+const EXPERIENCIE = [
+  {
+    date: 'Actualmente...',
+    title: 'Junior Web Developer - Telemovil Data SAC',
+    description:
+      'Tuve la emocionante oportunidad de contribuir al desarrollo y mejora de la plataforma de facturación electrónica utilizando el framework VUE.JS y crear la aplicación movil con FLUTTER. Mi enfoque principal era garantizar una experiencia de usuario fluida y eficiente al corregir problemas existentes, implementar nuevas funciones y gestionar la emisión de comprobantes electronicos consumiendo una API REST.',
+    link: ''
+  },
+  {
+    date: 'Julio 2019 - Enero 2021',
+    title: 'Practicante de Desarrollo de Software - Telemovil Data SAC',
+    description:
+      'Realice prácticas pre profesionales y adquirí experiencia en el manejo de bases de datos y también fortalecí mis habilidades en desarrollo web. Trabajé en  colaboración con el equipo de sistemas para corregir errores de bases de datos.',
+    link: ''
+  },
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-white ml-3 mt-6">
+  {
+    EXPERIENCIE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
