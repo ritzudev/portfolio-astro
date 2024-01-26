@@ -1,0 +1,223 @@
+---
+
+interface Props {
+  textHover?: string,
+  primaryColor?: string,
+  linkSvg?: string
+}
+
+const { textHover, primaryColor, linkSvg} = Astro.props
+
+---
+
+<div class="tooltip-container">
+  <span class="tooltip">{textHover}</span>
+<li class="stack transition-all duration-[.7s] ease-in" style="" tool-tip="">
+  <p
+    class="stack__name transition-all duration-[.7s] ease-in"
+  >
+    DYNAMIC
+  </p>
+  <span class="icon-DYNAMIC" ></span>
+</li>
+</div>
+
+
+<style define:vars={{ primaryColor, image: `url("${linkSvg}")`  }}>
+  .stack:hover:after,
+  .stack:focus-visible:after,
+  .stack:active:after {
+    box-shadow: 0 0 35px 20px var(--primaryColor);
+  }
+
+  .stack:hover:before,
+  .stack:focus-visible:before,
+  .stack:active:before {
+    border-color: var(--primaryColor);
+    backdrop-filter: blur(14px);
+  }
+
+  *:after,
+  *:before {
+    transition: 0.7s ease;
+  }
+  .stack {
+    position: relative;
+    width: 3.3em;
+    height: 3.3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+
+  .stack::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    border-radius: 1em;
+    backdrop-filter: blur(30px);
+    z-index: -1;
+  }
+
+  .stack::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 35px 12px var(--primaryColor);
+    z-index: -2;
+  }
+
+  .icon-DYNAMIC {
+    background-image: var(--image);
+  }
+
+  .stack__name {
+    font-size: 0px;
+  }
+
+  [class^='icon-'],
+  [class*=' icon-'] {
+    width: 40px;
+    height: 32px;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+.tooltip-container {
+  --background: transparent;
+  --color: #e8e8e8;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color);
+  padding: 0.7em 1.8em;
+  border-radius: 8px;
+  text-transform: uppercase;
+  height: 60px;
+  width: 180px;
+  display: grid;
+  place-items: center;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  transform-origin: -100%;
+  transform: scale(1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* .tooltip-container span:last-child {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  opacity: 1;
+  background-color: var(--background);
+  z-index: -1;
+  border: 2px solid var(--background);
+  transform: scale(0);
+  transform-origin: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: grid;
+  place-items: center;
+} */
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3em 0.6em;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: var(--background);
+  z-index: -1;
+  border-radius: 8px;
+  scale: 0;
+  transform-origin: 0 0;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 0.6em;
+  width: 0.6em;
+  bottom: -0.2em;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  background: var(--background);
+}
+
+.tooltip-container:hover .tooltip {
+  top: -60%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  scale: 1;
+  animation: shake 0.7s ease-in-out both;
+}
+
+/* .tooltip-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  color: white;
+  border-color: transparent;
+} */
+
+/* .tooltip-container:hover span:last-child {
+  transform: scale(1);
+  left: 0;
+} */
+
+/* .tooltip-container:hover .text {
+  opacity: 0;
+  top: 0%;
+  left: 100%;
+  transform: scale(0);
+} */
+
+@keyframes shake {
+  0% {
+    rotate: 0;
+  }
+
+  25% {
+    rotate: 7deg;
+  }
+
+  50% {
+    rotate: -7deg;
+  }
+
+  75% {
+    rotate: 1deg;
+  }
+
+  100% {
+    rotate: 0;
+  }
+}
+</style>
