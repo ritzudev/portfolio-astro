@@ -11,6 +11,7 @@ import CodeIcon from '../components/icons/Code.astro'
 import Experience from '../components/Experience.astro'
 import Projects from '../components/Projects.astro'
 import Stacks from '../components/Stacks.astro'
+import SectionContainer from '../components/sectionContainer.astro'
 ---
 
 <Layout
@@ -18,7 +19,7 @@ import Stacks from '../components/Stacks.astro'
   description="Contrata a ritzudev para crear tu aplicación web o móvil. Desarrollador Web. Especializado en crear aplicaciones únicas."
 >
   <main class="px-4 max-w-3xl mx-auto">
-    <section id="home" class="">
+    <SectionContainer id="home" class="">
       <div class="flex items-center flex-col sm:flex-row py-20 gap-10 md:gap-0">
         <h1
           class="text-2xl text-center md:text-start sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-bold w-full"
@@ -67,13 +68,13 @@ import Stacks from '../components/Stacks.astro'
 					lexzum10@gmail.com
 				</SocialPill>
 			</nav>
-    </section>
-		<section class="mt-10">
+    </SectionContainer>
+		<SectionContainer class="mt-10">
 			<h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold">
 				<WorkIcon class="size-7"/> Experiencia Laboral
 			</h1>
 			<Experience />
-		</section>
+		</SectionContainer>
 		<section class="">
       <h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold">
         <CodeIcon class="size-7" /> Proyectos
@@ -82,7 +83,7 @@ import Stacks from '../components/Stacks.astro'
         <Projects />
       </div>
 		</section>
-    <section class="py-10 flex gap-6">
+    <section class="py-10 flex gap-8">
       <Stacks />
     </section>
   </main>
