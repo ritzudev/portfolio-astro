@@ -2,11 +2,11 @@
 
 interface Props {
   textHover?: string,
-  primaryColor?: string,
+  iconColor?: string,
   linkSvg?: string
 }
 
-const { textHover, primaryColor, linkSvg} = Astro.props
+const { textHover, iconColor, linkSvg} = Astro.props
 
 ---
 
@@ -23,17 +23,17 @@ const { textHover, primaryColor, linkSvg} = Astro.props
 </div>
 
 
-<style define:vars={{ primaryColor, image: `url("${linkSvg}")`  }}>
+<style define:vars={{ iconColor, image: `url("${linkSvg}")`  }}>
   .stack:hover:after,
   .stack:focus-visible:after,
   .stack:active:after {
-    box-shadow: 0 0 35px 20px var(--primaryColor);
+    box-shadow: 0 0 35px 20px var(--iconColor);
   }
 
   .stack:hover:before,
   .stack:focus-visible:before,
   .stack:active:before {
-    border-color: var(--primaryColor);
+    border-color: var(--iconColor);
     backdrop-filter: blur(14px);
   }
 
@@ -68,7 +68,7 @@ const { textHover, primaryColor, linkSvg} = Astro.props
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    box-shadow: 0 0 35px 12px var(--primaryColor);
+    box-shadow: 0 0 35px 12px var(--iconColor);
     z-index: -2;
   }
 
@@ -102,7 +102,7 @@ const { textHover, primaryColor, linkSvg} = Astro.props
   border-radius: 8px;
   text-transform: uppercase;
   height: 60px;
-
+  margin: 10px 0px;
 }
 
 .text {
@@ -154,8 +154,8 @@ const { textHover, primaryColor, linkSvg} = Astro.props
   font-weight: 400;
   font-size: 16px;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  border: 1px solid var(--primaryColor);
-  color: var(--primaryColor);
+  border: 1px solid var(--iconColor);
+  color: var(--iconColor);
 }
 
 .tooltip::before {

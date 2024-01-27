@@ -1,12 +1,92 @@
 ---
-import StackIcon from "./StackIcon.astro"
+import StackIcon from './StackIcon.astro'
+
+const STACKS = [
+  {
+    textHover: 'html',
+    iconColor: '#ef652a',
+    svg: '/iconsStack/html.svg',
+    name: 'HTML'
+  },
+  {
+    textHover: 'css',
+    iconColor: '#30A9DC',
+    svg: '/iconsStack/css.svg',
+    name: 'HTML'
+  },
+  {
+    textHover: 'JavaScript',
+    iconColor: '#F0DB4F',
+    svg: '/iconsStack/js.svg'
+  },
+  {
+    textHover: 'tailwind',
+    iconColor: '#16bfb8',
+    svg: '/iconsStack/tailwind.svg'
+  },
+  {
+    textHover: 'react',
+    iconColor: '#00D8FF',
+    svg: '/iconsStack/react.svg'
+  },
+  {
+    textHover: 'nextJs',
+    iconColor: '#fff',
+    svg: '/iconsStack/nextjs.svg'
+  },
+  {
+    textHover: 'astro',
+    iconColor: '#fff',
+    svg: '/iconsStack/astro.svg'
+  },
+  {
+    textHover: 'expressjs',
+    iconColor: '#ffffff',
+    svg: '/iconsStack/expressjs.svg'
+  },
+  {
+    textHover: 'git',
+    iconColor: '#de4c36',
+    svg: '/iconsStack/git.svg'
+  },
+  {
+    textHover: 'github',
+    iconColor: '#F0DB4F',
+    svg: '/iconsStack/github.svg'
+  },
+  {
+    textHover: 'vscode',
+    iconColor: '#1f8ad2',
+    svg: '/iconsStack/vscode.svg'
+  },
+  {
+    textHover: 'vue',
+    iconColor: '#3faa7e',
+    svg: '/iconsStack/vue.svg'
+  },
+  {
+    textHover: 'vuetify',
+    iconColor: '#7bc6ff',
+    svg: '/iconsStack/vuetify.svg'
+  },
+  {
+    textHover: 'bootstrap',
+    iconColor: '#7e13f8',
+    svg: '/iconsStack/bootstrap.svg'
+  },
+  {
+    textHover: 'flutter',
+    iconColor: '#1f8ad2',
+    svg: '/iconsStack/flutter.svg'
+  }
+]
 ---
 
-<StackIcon textHover="HTML" primaryColor="#ef652a" linkSvg="https://monoald.github.io/_astro/html5.8c4d7786.svg" />
-
-<StackIcon textHover="CSS" primaryColor="#30A9DC" linkSvg="https://monoald.github.io/_astro/css.a3b2b938.svg" />
-
-<StackIcon textHover="JavaScript" primaryColor="#F0DB4F" linkSvg="/projects/js-icon.svg" />
+{
+  STACKS.map(({ textHover, iconColor, svg }) => (
+    <StackIcon textHover={textHover} iconColor={iconColor} linkSvg={svg} />
+  ))
+}
 
 <style>
   .stack:hover:after,
@@ -75,37 +155,37 @@ import StackIcon from "./StackIcon.astro"
     background-size: contain;
   }
 
-.tooltip-container {
-  --background: transparent;
-  --color: #e8e8e8;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--color);
-  padding: 0.7em 1.8em;
-  border-radius: 8px;
-  text-transform: uppercase;
-  height: 60px;
-  display: grid;
-  place-items: center;
-}
+  .tooltip-container {
+    --background: transparent;
+    --color: #e8e8e8;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color);
+    padding: 0.7em 1.8em;
+    border-radius: 8px;
+    text-transform: uppercase;
+    height: 60px;
+    display: grid;
+    place-items: center;
+  }
 
-.text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  transform-origin: -100%;
-  transform: scale(1);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transform-origin: -100%;
+    transform: scale(1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-/* .tooltip-container span:last-child {
+  /* .tooltip-container span:last-child {
   position: absolute;
   top: 0%;
   left: 100%;
@@ -123,84 +203,84 @@ import StackIcon from "./StackIcon.astro"
   place-items: center;
 } */
 
-.tooltip {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.3em 0.6em;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  background: var(--background);
-  z-index: -1;
-  border-radius: 8px;
-  scale: 0;
-  transform-origin: 0 0;
-  text-transform: capitalize;
-  font-weight: 400;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  border: 2px solid #ef652a;
-}
+  .tooltip {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.3em 0.6em;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background: var(--background);
+    z-index: -1;
+    border-radius: 8px;
+    scale: 0;
+    transform-origin: 0 0;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    border: 2px solid #ef652a;
+  }
 
-.tooltip::before {
-  position: absolute;
-  content: "";
-  height: 0.6em;
-  width: 0.6em;
-  bottom: -0.2em;
-  left: 50%;
-  transform: translate(-50%) rotate(45deg);
-  background: var(--background);
-}
+  .tooltip::before {
+    position: absolute;
+    content: '';
+    height: 0.6em;
+    width: 0.6em;
+    bottom: -0.2em;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    background: var(--background);
+  }
 
-.tooltip-container:hover .tooltip {
-  top: -60%;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  scale: 1;
-  animation: shake 0.7s ease-in-out both;
-}
+  .tooltip-container:hover .tooltip {
+    top: -60%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    scale: 1;
+    animation: shake 0.7s ease-in-out both;
+  }
 
-/* .tooltip-container:hover {
+  /* .tooltip-container:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   color: white;
   border-color: transparent;
 } */
 
-/* .tooltip-container:hover span:last-child {
+  /* .tooltip-container:hover span:last-child {
   transform: scale(1);
   left: 0;
 } */
 
-/* .tooltip-container:hover .text {
+  /* .tooltip-container:hover .text {
   opacity: 0;
   top: 0%;
   left: 100%;
   transform: scale(0);
 } */
 
-@keyframes shake {
-  0% {
-    rotate: 0;
-  }
+  @keyframes shake {
+    0% {
+      rotate: 0;
+    }
 
-  25% {
-    rotate: 7deg;
-  }
+    25% {
+      rotate: 7deg;
+    }
 
-  50% {
-    rotate: -7deg;
-  }
+    50% {
+      rotate: -7deg;
+    }
 
-  75% {
-    rotate: 1deg;
-  }
+    75% {
+      rotate: 1deg;
+    }
 
-  100% {
-    rotate: 0;
+    100% {
+      rotate: 0;
+    }
   }
-}
 </style>
