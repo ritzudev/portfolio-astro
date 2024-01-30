@@ -30,10 +30,10 @@ const navItems = [
 
 <header class="h-24 sm:h-12 sticky top-8 z-10 w-full mt-4 mx-auto flex items-center justify-center "
 >
-  <nav class="w-full md:w-[48rem] flex flex-wrap gap-2 sm:gap-4 mx-4 justify-center rounded-xl border-2 border-gray-500 h-full items-center px-4 backdrop-blur-3xl"> 
+  <nav class="w-full md:w-[48rem] flex flex-wrap gap-2 sm:gap-4  mx-4 justify-center rounded-xl border-2 border-gray-500 h-full items-center px-4 backdrop-blur-3xl"> 
     {
       navItems.map(({ title, label, url }) => (
-        <a class="hover:bg-green-600 px-2 py-1 rounded-md font-medium transition ease-in text-white" href={url} aria-label={label}>
+        <a class="hover:bg-green-600 px-2 py-1 rounded-md font-bold transition ease-in text-white" href={url} aria-label={label}>
           {title}
         </a>
       ))
