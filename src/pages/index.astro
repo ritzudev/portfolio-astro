@@ -12,15 +12,17 @@ import Experience from '../components/Experience.astro'
 import Projects from '../components/Projects.astro'
 import Stacks from '../components/Stacks.astro'
 import SectionContainer from '../components/sectionContainer.astro'
+import AboutMe from '../components/AboutMe.astro'
+import PersonIcon from '../components/icons/Person.astro'
 ---
 
 <Layout
   title="Alex Flores - Front End Development"
   description="Contrata a ritzudev para crear tu aplicación web o móvil. Desarrollador Web. Especializado en crear aplicaciones únicas."
 >
-  <main class="px-4 max-w-3xl mx-auto">
-    <SectionContainer id="home" class="my-20">
-      <div class="flex items-center flex-col sm:flex-row py-20 gap-10 md:gap-0">
+  <main class="px-4 max-w-4xl mx-auto">
+    <SectionContainer id="home" class="mb-20 mt-32">
+      <!--       <div class="flex items-center flex-col sm:flex-row py-20 gap-10 md:gap-0">
         <h1
           class="text-2xl text-center md:text-start sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-bold w-full"
         >
@@ -29,7 +31,6 @@ import SectionContainer from '../components/sectionContainer.astro'
             >Hey, soy</span
           >
           <br class="hidden sm:block" />
-          <!-- <span id="textName"> Alex FZ</span>, <br /> -->
           <TypeAnimation
             client:visible
             sequence={[
@@ -48,46 +49,80 @@ import SectionContainer from '../components/sectionContainer.astro'
             repeat={Infinity}
           />
         </h1>
-
-        <img class="" src="/me.webp" alt="rin" />
+      </div> -->
+      <div class="flex items-center gap-4 mb-4">
+        <img class="size-20 rounded-lg" src="/profile.jpg" alt="me profile" />
+        <div class="w-52">
+          <span class="relative flex overflow-hidden rounded-lg p-[2px]">
+            <span
+              class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#47d98f_0%,#1B4831_50%,#47d98f_100%)]"
+            ></span>
+            <div
+              class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950/90 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl whitespace-nowrap"
+            >
+              Disponible para trabajar
+            </div>
+          </span>
+        </div>
       </div>
-			<div class="w-52 mb-4"> <span class="relative flex overflow-hidden rounded-lg p-[2px]"> <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#47d98f_0%,#1B4831_50%,#47d98f_100%)]"></span> <div class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950/90 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl whitespace-nowrap"> Disponible para trabajar </div> </span> </div>
-      <h2 class="max-w-[700px] text-balance text-xl lg:text-2xl">
-				<span >+3 años de experiencia.</span>
-				<span class="text-green-300">Desarrollador Web y Desarrollador Flutter.</span>
-				<span class="text-red-300">De Lima, Perú.</span>
-				<span class="text-blue-300">Especializado en crear aplicaciones únicas.</span>
-			</h2>
-			<nav class="flex gap-4 mt-8 flex-wrap">
-				<SocialPill href="https://github.com/ritzudev">
-					<GitHubIcon class="size-6" />
-					GitHub
-				</SocialPill>
-				<SocialPill href="mailto:ritzudev@gmail.com">
-					<EmailIcon class="size-6" />
-					ritzudev@gmail.com
-				</SocialPill>
-			</nav>
+
+      <span
+        class="bg-gradient-to-r from-green-400 to-sky-400 text-transparent bg-clip-text text-5xl"
+        >Hey, soy Alex Flores</span
+      >
+
+      <h2 class="max-w-[700px] text-balance text-xl lg:text-2xl pt-6">
+        <span>+3 años de experiencia.</span>
+        <span class="text-green-300"
+          >Desarrollador Web y Desarrollador Flutter.</span
+        >
+        <span class="text-red-300">De Lima, Perú.</span>
+        <span class="text-blue-300"
+          >Especializado en crear aplicaciones únicas.</span
+        >
+      </h2>
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <SocialPill href="https://github.com/ritzudev">
+          <GitHubIcon class="size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:ritzudev@gmail.com">
+          <EmailIcon class="size-6" />
+          ritzudev@gmail.com
+        </SocialPill>
+      </nav>
     </SectionContainer>
-		<SectionContainer id="experiencia" class="my-32">
-			<h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold">
-				<WorkIcon class="size-7"/> Experiencia Laboral
-			</h1>
-			<Experience />
-		</SectionContainer>
-		<SectionContainer id="proyectos" class="my-32">
+    <SectionContainer id="experiencia" class="my-32">
+      <h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold">
+        <WorkIcon class="size-7" /> Experiencia Laboral
+      </h1>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="proyectos" class="my-32">
       <h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold">
         <CodeIcon class="size-7" /> Proyectos
       </h1>
-			<div class="grid grid-cols-1 sm:grid-cols-2 place-items-center py-10 gap-6 text-start ">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 place-items-center py-10 gap-10 text-start"
+      >
         <Projects />
       </div>
-		</SectionContainer>
+    </SectionContainer>
+
     <SectionContainer id="habilidades" class="py-10 flex flex-col gap-10">
-      <h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold"> <CodeIcon class="size-7" /> Habilidades</h1>
+      <h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold">
+        <CodeIcon class="size-7" /> Habilidades
+      </h1>
       <div class="flex flex-wrap justify-center gap-10">
         <Stacks />
       </div>
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi" class="my-32">
+      <h1 class="flex gap-3 text-3xl items-center text-gray-300 font-semibold">
+        <PersonIcon /> Sobre mí
+      </h1>
+      <AboutMe />
     </SectionContainer>
   </main>
 </Layout>

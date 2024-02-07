@@ -1,292 +1,138 @@
 ---
 import StackIcon from './StackIcon.astro'
 
+import astroIcon from './iconsStack/astro.astro'
+import bootstrapIcon from './iconsStack/bootstrap.astro'
+import cssIcon from './iconsStack/css.astro'
+import expressjsIcon from './iconsStack/expressjs.astro'
+import flutterIcon from './iconsStack/flutter.astro'
+import gitIcon from './iconsStack/git.astro'
+import githubIcon from './iconsStack/github.astro'
+import htmlIcon from './iconsStack/html.astro'
+import jsIcon from './iconsStack/js.astro'
+import nextjsIcon from './iconsStack/nextjs.astro'
+import nodejsIcon from './iconsStack/nodejs.astro'
+import reactIcon from './iconsStack/react.astro'
+import tailwindIcon from './iconsStack/tailwind.astro'
+import vitejsIcon from './iconsStack/vitejs.astro'
+import vscodeIcon from './iconsStack/vscode.astro'
+import vueIcon from './iconsStack/vue.astro'
+import vuetifyIcon from './iconsStack/vuetify.astro'
+
+/* import VueIcon from '/'
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: Vue,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+} */
+
 const STACKS = [
   {
     textHover: 'html',
     iconColor: '#ef652a',
-    svg: '/iconsStack/html.svg',
+    svg: htmlIcon,
     name: 'HTML'
   },
   {
     textHover: 'css',
     iconColor: '#30A9DC',
-    svg: '/iconsStack/css.svg',
+    svg: cssIcon,
     name: 'HTML'
   },
   {
     textHover: 'JavaScript',
     iconColor: '#F0DB4F',
-    svg: '/iconsStack/js.svg'
+    svg: jsIcon,
+    name: 'HTML'
   },
   {
     textHover: 'vue',
     iconColor: '#3faa7e',
-    svg: '/iconsStack/vue.svg'
+    svg: vueIcon,
+    name: 'HTML'
   },
   {
     textHover: 'react',
     iconColor: '#00D8FF',
-    svg: '/iconsStack/react.svg'
+    svg: reactIcon
   },
   {
     textHover: 'flutter',
     iconColor: '#1f8ad2',
-    svg: '/iconsStack/flutter.svg'
+    svg: flutterIcon
+  },
+  {
+    textHover: 'nodejs',
+    iconColor: '#539e43',
+    svg: nodejsIcon
   },
   {
     textHover: 'tailwind',
     iconColor: '#16bfb8',
-    svg: '/iconsStack/tailwind.svg'
-  },
-  {
-    textHover: 'nextJs',
-    iconColor: '#fff',
-    svg: '/iconsStack/nextjs.svg'
+    svg: tailwindIcon
   },
   {
     textHover: 'astro',
     iconColor: '#fff',
-    svg: '/iconsStack/astro.svg'
+    svg: astroIcon
+  },
+  {
+    textHover: 'nextJs',
+    iconColor: '#fff',
+    svg: nextjsIcon
   },
   {
     textHover: 'expressjs',
     iconColor: '#ffffff',
-    svg: '/iconsStack/expressjs.svg'
+    svg: expressjsIcon
   },
   {
     textHover: 'git',
     iconColor: '#de4c36',
-    svg: '/iconsStack/git.svg'
+    svg: gitIcon
   },
   {
     textHover: 'github',
     iconColor: '#F0DB4F',
-    svg: '/iconsStack/github.svg'
+    svg: githubIcon
   },
-  {
+  /*   {
     textHover: 'vscode',
     iconColor: '#1f8ad2',
-    svg: '/iconsStack/vscode.svg'
-  },
-  
+    svg: vscodeIcon
+  }, */
   {
     textHover: 'vuetify',
     iconColor: '#7bc6ff',
-    svg: '/iconsStack/vuetify.svg'
+    svg: vuetifyIcon
   },
   {
     textHover: 'bootstrap',
     iconColor: '#7e13f8',
-    svg: '/iconsStack/bootstrap.svg'
-  }
-  ,{
+    svg: bootstrapIcon
+  },
+  {
     textHover: 'vite',
     iconColor: '#6e97fe',
-    svg: '/iconsStack/vitejs.svg'
+    svg: vitejsIcon
   }
 ]
 ---
 
 {
-  STACKS.map(({ textHover, iconColor, svg }) => (
-    <StackIcon textHover={textHover} iconColor={iconColor} linkSvg={svg} />
+  STACKS.map((stack) => (
+    <StackIcon textHover={stack.textHover} iconColor={stack.iconColor}>
+      <span>
+        <stack.svg class="size-8" />
+      </span>
+    </StackIcon>
   ))
 }
-
-<style>
-  .stack:hover:after,
-  .stack:focus-visible:after,
-  .stack:active:after {
-    box-shadow: 0 0 35px 20px #ef652a;
-  }
-
-  .stack:hover:before,
-  .stack:focus-visible:before,
-  .stack:active:before {
-    border-color: #ef652a;
-    backdrop-filter: blur(14px);
-  }
-
-  *:after,
-  *:before {
-    transition: 0.7s ease;
-  }
-  .stack {
-    position: relative;
-    width: 3.3em;
-    height: 3.3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-  }
-
-  .stack::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid transparent;
-    border-radius: 1em;
-    backdrop-filter: blur(30px);
-    z-index: -1;
-  }
-
-  .stack::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    box-shadow: 0 0 35px 12px #ef652a;
-    z-index: -2;
-  }
-
-  .icon-HTML {
-    background-image: url('https://monoald.github.io/_astro/html5.8c4d7786.svg');
-  }
-
-  .stack__name {
-    font-size: 0px;
-  }
-
-  [class^='icon-'],
-  [class*=' icon-'] {
-    width: 40px;
-    height: 32px;
-    display: block;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .tooltip-container {
-    --background: transparent;
-    --color: #e8e8e8;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--color);
-    padding: 0.7em 1.8em;
-    border-radius: 8px;
-    text-transform: uppercase;
-    height: 60px;
-    display: grid;
-    place-items: center;
-  }
-
-  .text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    transform-origin: -100%;
-    transform: scale(1);
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  /* .tooltip-container span:last-child {
-  position: absolute;
-  top: 0%;
-  left: 100%;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  opacity: 1;
-  background-color: var(--background);
-  z-index: -1;
-  border: 2px solid var(--background);
-  transform: scale(0);
-  transform-origin: 0;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  display: grid;
-  place-items: center;
-} */
-
-  .tooltip {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.3em 0.6em;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    background: var(--background);
-    z-index: -1;
-    border-radius: 8px;
-    scale: 0;
-    transform-origin: 0 0;
-    text-transform: capitalize;
-    font-weight: 400;
-    font-size: 16px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    border: 2px solid #ef652a;
-  }
-
-  .tooltip::before {
-    position: absolute;
-    content: '';
-    height: 0.6em;
-    width: 0.6em;
-    bottom: -0.2em;
-    left: 50%;
-    transform: translate(-50%) rotate(45deg);
-    background: var(--background);
-  }
-
-  .tooltip-container:hover .tooltip {
-    top: -60%;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    scale: 1;
-    animation: shake 0.7s ease-in-out both;
-  }
-
-  /* .tooltip-container:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  color: white;
-  border-color: transparent;
-} */
-
-  /* .tooltip-container:hover span:last-child {
-  transform: scale(1);
-  left: 0;
-} */
-
-  /* .tooltip-container:hover .text {
-  opacity: 0;
-  top: 0%;
-  left: 100%;
-  transform: scale(0);
-} */
-
-  @keyframes shake {
-    0% {
-      rotate: 0;
-    }
-
-    25% {
-      rotate: 7deg;
-    }
-
-    50% {
-      rotate: -7deg;
-    }
-
-    75% {
-      rotate: 1deg;
-    }
-
-    100% {
-      rotate: 0;
-    }
-  }
-</style>

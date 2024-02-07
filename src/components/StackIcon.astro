@@ -1,29 +1,26 @@
 ---
-
 interface Props {
-  textHover?: string,
-  iconColor?: string,
+  textHover?: string
+  iconColor?: string
   linkSvg?: string
 }
 
-const { textHover, iconColor, linkSvg} = Astro.props
+const { textHover, iconColor, linkSvg } = Astro.props
 
+import Work from './icons/Work.astro'
 ---
 
 <div class="tooltip-container">
   <span class="tooltip">{textHover}</span>
-<span class="stack" style="" tool-tip="">
-  <p
-    class="stack__name"
-  >
-    DYNAMIC
-  </p>
-  <span class="icon-DYNAMIC" ></span>
-</>
+  <span class="stack" style="" tool-tip="">
+    <p class="stack__name">DYNAMIC</p>
+    <slot />
+    <!-- <span class="icon-DYNAMIC"></span> -->
+    <!-- <Work class="size-4" /> -->
+  </span>
 </div>
 
-
-<style define:vars={{ iconColor, image: `url("${linkSvg}")`  }}>
+<style define:vars={{ iconColor }}>
   .stack:hover:after,
   .stack:focus-visible:after,
   .stack:active:after {
@@ -90,35 +87,35 @@ const { textHover, iconColor, linkSvg} = Astro.props
     background-size: contain;
   }
 
-.tooltip-container {
-  --background: transparent;
-  --color: #e8e8e8;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--color);
-  border-radius: 8px;
-  text-transform: uppercase;
-  height: 60px;
-  margin: 10px 0px;
-}
+  .tooltip-container {
+    --background: transparent;
+    --color: #e8e8e8;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color);
+    border-radius: 8px;
+    text-transform: uppercase;
+    height: 60px;
+    margin: 10px 0px;
+  }
 
-.text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  transform-origin: -100%;
-  transform: scale(1);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    transform-origin: -100%;
+    transform: scale(1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-/* .tooltip-container span:last-child {
+  /* .tooltip-container span:last-child {
   position: absolute;
   top: 0%;
   left: 100%;
@@ -136,85 +133,85 @@ const { textHover, iconColor, linkSvg} = Astro.props
   place-items: center;
 } */
 
-.tooltip {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.3em 0.6em;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  background: var(--background);
-  z-index: -1;
-  border-radius: 8px;
-  scale: 0;
-  transform-origin: 0 0;
-  text-transform: capitalize;
-  font-weight: 400;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  border: 1px solid var(--iconColor);
-  color: var(--iconColor);
-}
+  .tooltip {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.3em 0.6em;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background: var(--background);
+    z-index: -1;
+    border-radius: 8px;
+    scale: 0;
+    transform-origin: 0 0;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    border: 1px solid var(--iconColor);
+    color: var(--iconColor);
+  }
 
-.tooltip::before {
-  position: absolute;
-  content: "";
-  height: 0.6em;
-  width: 0.6em;
-  bottom: -0.2em;
-  left: 50%;
-  transform: translate(-50%) rotate(45deg);
-  background: var(--background);
-}
+  .tooltip::before {
+    position: absolute;
+    content: '';
+    height: 0.6em;
+    width: 0.6em;
+    bottom: -0.2em;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    background: var(--background);
+  }
 
-.tooltip-container:hover .tooltip {
-  top: -80%;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  scale: 1;
-  animation: shake 0.7s ease-in-out both;
-}
+  .tooltip-container:hover .tooltip {
+    top: -80%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    scale: 1;
+    animation: shake 0.7s ease-in-out both;
+  }
 
-/* .tooltip-container:hover {
+  /* .tooltip-container:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   color: white;
   border-color: transparent;
 } */
 
-/* .tooltip-container:hover span:last-child {
+  /* .tooltip-container:hover span:last-child {
   transform: scale(1);
   left: 0;
 } */
 
-/* .tooltip-container:hover .text {
+  /* .tooltip-container:hover .text {
   opacity: 0;
   top: 0%;
   left: 100%;
   transform: scale(0);
 } */
 
-@keyframes shake {
-  0% {
-    rotate: 0;
-  }
+  @keyframes shake {
+    0% {
+      rotate: 0;
+    }
 
-  25% {
-    rotate: 7deg;
-  }
+    25% {
+      rotate: 7deg;
+    }
 
-  50% {
-    rotate: -7deg;
-  }
+    50% {
+      rotate: -7deg;
+    }
 
-  75% {
-    rotate: 1deg;
-  }
+    75% {
+      rotate: 1deg;
+    }
 
-  100% {
-    rotate: 0;
+    100% {
+      rotate: 0;
+    }
   }
-}
 </style>

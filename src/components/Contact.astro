@@ -1,0 +1,124 @@
+---
+if (Astro.request.method === 'POST') {
+  try {
+    const data = await Astro.request.formData()
+    const name = data.get('name')
+    const email = data.get('email')
+    const comments = data.get('comments')
+    // Do something with the data
+
+    console.log(data)
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+    }
+  }
+}
+---
+
+<form
+  method="POST"
+  class="w-full rounded-xl flex gap-6 flex-col pt-4 pb-6 bg-[#f1f5f9] dark:bg-[#363636] px-4 shadow-2xl"
+>
+  <label>
+    Nombre:
+    <input
+      class="input-contact"
+      v-model="formEmail.asunto"
+      type="text"
+      name="name"
+    />
+  </label>
+  <label>
+    Email:
+    <input
+      class="input-contact"
+      v-model="formEmail.email"
+      type="email"
+      name="email"
+      id="emailI"
+    />
+  </label>
+  <label>
+    Mensaje:
+    <textarea
+      class="input-contact"
+      v-model="formEmail.contenido"
+      name="comments"
+      id=""
+      cols="30"
+      rows="11"></textarea>
+  </label>
+  <input type="hidden" name="_captcha" value="false" />
+  <div
+    class="hover:scale-[1.05] transition-all duration-500 bg-gradient-to-r from-green-400 to-sky-400 p-[2px] rounded-xl"
+  >
+    <button
+      class="button-sea-green rounded-xl py-4 w-full text-center text-white text-2xl"
+      type="submit"
+    >
+      Enviar
+    </button>
+  </div>
+</form>
+
+<!-- <script>
+  var inputName = document.getElementById('emailI')
+  var value = inputName?.ariaValueMax
+  console.log(inputName)
+</script> -->
+
+<style>
+  .backdrop-blur-lg {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  input {
+    outline: none;
+    font-size: 20px;
+    background-color: #5555;
+  }
+
+  textarea {
+    resize: none;
+    outline: none;
+  }
+
+  .input-contact {
+    display: flex;
+    background-color: #222222;
+    /* border: 1px solid; */
+    box-shadow: 3px 3px #4ade80;
+    border-radius: 6px;
+    padding: 6px 26px;
+    flex-direction: column;
+    /* gap: 0.5rem; */
+    color: white;
+    width: 100%;
+  }
+
+  .button-sea-green {
+    background-color: #393939;
+    transition: 0.3s;
+    /*  box-shadow: 8px 8px #8fbc8f; */
+  }
+
+  /*   .button-sea-green:hover {
+    transform: scale(1.05);
+  } */
+
+  .button-sea-green:hover,
+  .button-sea-green:focus {
+    /* transform: scale(1.05); */
+    /* box-shadow:
+      inset -11.5em 0 0 0 #4cc077,
+      inset 11.5em 0 0 0 #38bdf8;*/
+  }
+
+  .close:focus {
+    box-shadow:
+      inset -3.5em 0 0 0 var(green),
+      inset 3.5em 0 0 0 var(green);
+  }
+</style>

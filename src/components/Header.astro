@@ -19,28 +19,34 @@ const navItems = [
     title: 'Sobre mí',
     label: 'sobre-mi',
     url: '#sobre-mi'
-  },
-  {
+  }
+  /*   {
     title: 'Contacto',
     label: 'contacto',
     url: '#contacto'
-  }
+  } */
 ]
 ---
 
-<header class="h-24 sm:h-12 sticky top-8 z-10 w-full mt-4 mx-auto flex items-center justify-center "
+<header
+  class="h-24 sm:h-12 sticky top-8 z-10 w-full mt-4 mx-auto flex items-center justify-center"
 >
-  <nav class="w-full md:w-[48rem] flex flex-wrap gap-2 sm:gap-4  mx-4 justify-center rounded-xl border-2 border-gray-500 h-full items-center px-4 backdrop-blur-3xl"> 
+  <nav
+    class="w-full md:w-[48rem] flex flex-wrap gap-2 sm:gap-4 mx-4 justify-center rounded-xl border-2 border-gray-500 h-full items-center px-4 backdrop-blur-3xl"
+  >
     {
       navItems.map(({ title, label, url }) => (
-        <a class="hover:bg-green-600 px-2 py-1 rounded-md font-bold transition ease-in text-white" href={url} aria-label={label}>
+        <a
+          class="hover:bg-white/35 px-2 py-1 rounded-md font-bold transition ease-in text-white"
+          href={url}
+          aria-label={label}
+        >
           {title}
         </a>
       ))
     }
   </nav>
 </header>
-
 
 <!--  <header
   class="h-14 flex justify-center items-center mx-auto pt-2 sticky top-0 w-full z-10"
@@ -68,39 +74,39 @@ const navItems = [
 </header> -->
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+  document.addEventListener('astro:page-load', () => {
+    const sections = document.querySelectorAll('section')
+    const navItems = document.querySelectorAll('header nav a')
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("link-active");
+            if (item.getAttribute('aria-label') == entry.target.id) {
+              item.classList.add('link-active')
             } else {
-              item.classList.remove("link-active");
+              item.classList.remove('link-active')
             }
-          });
+          })
         }
-      });
-    };
+      })
+    }
 
     const observer = new IntersectionObserver(callback, {
       root: null,
-      rootMargin: "20px",
-      threshold: 0.4,
-    });
+      rootMargin: '20px',
+      threshold: 0.4
+    })
 
     sections.forEach((section) => {
-      observer.observe(section);
-    });
+      observer.observe(section)
+    })
 
     // Cleanup function
     window.onunload = () => {
-      observer.disconnect();
-    };
-  });
+      observer.disconnect()
+    }
+  })
 </script>
 
 <style>
